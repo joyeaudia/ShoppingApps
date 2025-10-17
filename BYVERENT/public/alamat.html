@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Address</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rasa:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 1;
+            padding: 1;
+            background-color: #f0eded; /* Latar belakang abu-abu gelap dari desain */
+            font-family: 'Rasa';
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+        }
+
+/* Kontainer Luar Putih */
+.page-container {
+    width: 360px; 
+    height: auto;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* 🔑 Perubahan 1: Hapus padding vertikal di sini */
+    padding: 0; 
+}
+
+/* Hapus selector .page-container ENTIRELY */
+
+.card {
+    /* 🔑 UBAH: Ambil lebar dari page-container */
+    width: 370px; 
+    
+    background-color: #FFFFFF; 
+    border-radius: 20px;
+    /* Atur padding yang sebenarnya di sini */
+    padding: 15px 30px; 
+    
+    /* Gunakan satu bayangan yang baik */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    
+    /* margin: 0 auto tidak diperlukan lagi karena body flexbox sudah memusatkan */
+    margin: 0; 
+    
+    /* Pastikan konten tidak melebihi batas */
+    box-sizing: border-box; 
+}
+
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 10px; /* Sedikit jarak di bawah judul */
+    font-size: 25px;
+    font-weight: 600; /* Ganti 0 menjadi 600 agar tulisan tebal */
+}
+
+form label {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 4px; /* 🔽 dikurangi biar lebih rapat */
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px 8px; 
+    border: 1px solid #e0e0e0; 
+    background-color: #f7f7f7; 
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Rasa', sans-serif; 
+    box-sizing: border-box; 
+    appearance: none;
+    margin-bottom: 5px; /* 🔽 tambahkan ini biar ada jarak kecil antar field */
+}
+
+
+        /* Gaya khusus untuk Dropdown (Panah kustom) */
+        form select {
+            /* SVG untuk panah ke bawah (agar terlihat konsisten di semua browser) */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23333333" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 30px; 
+        }
+
+        /* Gaya Checkbox Row */
+        .default-address-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .default-address-row label {
+            margin: 0; 
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .custom-checkbox {
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+.save-btn {
+    /* 🔑 UBAH: Kurangi lebar dari 100% menjadi misalnya 70% */
+    width: 50%; 
+    
+    /* 🔑 PENTING: Gunakan display: block dan margin: 0 auto untuk memusatkan */
+    margin: 20px auto 0 auto; /* Tambahkan margin atas untuk memberi jarak */
+    display: block; /* Harus block agar margin auto berfungsi */
+    
+    padding: 13px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+        .save-btn:hover {
+            filter: brightness(110%);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="card">
+            <h2>Shipping Address</h2>
+            <form>
+                <label for="recipient-name">Recipient Name</label>
+                <input type="text" id="recipient-name" placeholder="Enter Recipient Name" required />
+
+                <label for="phone-number">Phone Number</label>
+                <input type="tel" id="phone-number" placeholder="08xxxxxxxx" required />
+
+                <label for="street-address">Street Address</label>
+                <input type="text" id="street-address" placeholder="Enter Street Address" required />
+
+                <label for="city">City</label>
+                <select id="city" required>
+                    <option value="" disabled selected>Select City</option>
+                    <option value="jakarta">Jakarta</option>
+                    <option value="bandung">Bandung</option>
+                </select>
+
+                <label for="province">Province / State</label>
+                <select id="province" required>
+                    <option value="" disabled selected>Select Province/State</option>
+                    <option value="jawa-barat">Jawa Barat</option>
+                    <option value="dki-jakarta">DKI Jakarta</option>
+                </select>
+                
+                <label for="postal-code">Postal Code</label>
+                <input type="text" id="postal-code" placeholder="Enter Postal Code" required />
+
+                <label for="country">Country</label>
+                <select id="country" required>
+                    <option value="" disabled selected>Select Country</option>
+                    <option value="indonesia">Indonesia</option>
+                </select>
+
+                <div class="default-address-row">
+                    <input type="checkbox" id="default-address" class="custom-checkbox">
+                    <label for="default-address">Set as default address</label>
+                </div>
+
+                <button type="submit" class="create-btn save-btn">Save Address</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

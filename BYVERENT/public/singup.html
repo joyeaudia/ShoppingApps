@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up Page</title>
+  <link rel="stylesheet" href="singup.css" />
+</head>
+<body>
+  <div class="<!DOCTYPE html>
+<html lang="en>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account</title>
+  <link rel="stylesheet" href="singup.css" />
+</head>
+<body>
+  <div class="sign-up-page">
+    <div class="card">
+      <h2>Create Account</h2>
+      <form>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="Your full name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="08xxxxxxxx" required />
+
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="********" required />
+          <span class="toggle"></span>
+        </div>
+
+        <label for="confirm-password">Confirm Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="confirm-password" placeholder="********" required />
+          <span class="toggle"></span>
+        </div>
+
+        <button type="submit" class="create-btn">Create Account</button>
+
+        <p class="signin-text">
+          Already have an account?
+          <a href="singin.html">Sign In</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Optional: Show/Hide password
+    document.querySelectorAll('.toggle').forEach(icon => {
+      icon.addEventListener('click', () => {
+        const input = icon.previousElementSibling;
+        input.type = input.type === 'password' ? 'text' : 'password';
+      });
+    });
+  </script>
+</body>
+</html>
+
